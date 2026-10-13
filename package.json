@@ -1,0 +1,63 @@
+{
+  "name": "pc-version",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "node start.js",
+    "electron": "electron .",
+    "package": "npm run build && electron-packager . \"tafaraj m3a atlas\" --platform=win32 --arch=x64 --out=release --overwrite --asar=false --prune=false",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^12.14.0",
+    "lucide-react": "^1.18.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "video.js": "^8.23.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.5.0",
+    "electron": "^41.7.1",
+    "electron-builder": "^24.6.0",
+    "electron-packager": "^17.1.2",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.11"
+  },
+  "build": {
+    "appId": "com.pcversion.moviestream",
+    "productName": "tafaraj m3a atlas",
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "MovieStream-${version}-${arch}.${ext}",
+      "sign": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

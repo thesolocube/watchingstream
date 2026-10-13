@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Netflix-style dark theme */
+body {
+  background-color: #141414;
+  color: #FFFFFF;
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border: none;
+  text-align: left;
+  display: block;
+}
+
+/* Hide scrollbar for clean carousels but allow horizontal scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Webkit scrollbar stylings for the rest of the application */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b2b2b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E50914;
+}
+
+/* Video.js skin overrides to match Netflix red theme */
+.video-js {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #000;
+}
+.video-js .vjs-play-progress,
+.video-js .vjs-volume-level {
+  background-color: #E50914 !important;
+}
+.video-js .vjs-control-bar {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)) !important;
+  height: 60px !important;
+  align-items: center;
+}
+.video-js .vjs-big-play-button {
+  background-color: rgba(229, 9, 20, 0.8) !important;
+  border-color: #E50914 !important;
+  width: 80px !important;
+  height: 80px !important;
+  line-height: 80px !important;
+  border-radius: 50% !important;
+  margin-top: -40px !important;
+  margin-left: -40px !important;
+  font-size: 3em !important;
+  transition: all 0.3s ease;
+}
+.video-js:hover .vjs-big-play-button {
+  background-color: #E50914 !important;
+  transform: scale(1.1);
+}
+
+/* Custom Glassmorphism effect */
+.glass {
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Hero Banner Gradient Overlay */
+.banner-overlay {
+  background: linear-gradient(to top, #141414 0%, rgba(20, 20, 20, 0.6) 40%, rgba(20, 20, 20, 0) 100%);
+}
+
+/* Horizontal Fade Scroll */
+.fade-edge-left {
+  mask-image: linear-gradient(to right, transparent 0%, black 10%);
+}
+.fade-edge-right {
+  mask-image: linear-gradient(to left, transparent 0%, black 10%);
+}
